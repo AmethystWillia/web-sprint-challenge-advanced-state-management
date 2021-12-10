@@ -1,4 +1,4 @@
-import { SMURF_START, SMURF_SUCCESS, SMURF_FAIL, SMURF_ADD } from "../actions";
+import { SMURF_START, SMURF_SUCCESS, SMURF_FAIL, SET_ERROR, SMURF_ADD } from "../actions";
 
 export const initialState = {
     smurfs: [{
@@ -9,7 +9,8 @@ export const initialState = {
         description: 'bruh',
     }],
     isLoading: false,
-    error: '',
+    fetchError: '',
+    formError: 'You must fill in the name, position, and nickname.',
 };
 
 const reducer = (state = initialState, action) => {
@@ -19,36 +20,46 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 smurfs: [],
                 isLoading: true,
-                error: '',
+                fetchError: '',
+                formError: '',
             });
         case (SMURF_SUCCESS):
             return ({
                 ...state,
                 smurfs: action.payload,
                 isLoading: false,
-                error: '',
+                fetchError: '',
+                formError: '',
             });
         case (SMURF_FAIL):
             return ({
                 ...state,
                 smurfs: [],
                 isLoading: false,
-                error: action.payload,
+                fetchError: action.payload,
+                formError: '',
             });
-        case (SMURF_ADD):
+        case SMURF_ADD:
             const newSmurf = {
-                id: Date.now(),
+                id: 420,
                 name: action.payload,
-                position: action.payload,
-                nickname: action.payload,
-                description: action.payload,
+                position: 'test',
+                nickname: 'test',
+                description: 'test',
             };
+            return {
+                ...state,
+                smurfs: [...state.smurfs, newSmurf]
+            };
+        case (SET_ERROR):
             return ({
                 ...state,
-                smurfs: [...state.smurfs, newSmurf],
+                smurfs: [],
                 isLoading: false,
-                error: '',
+                fetchError: '',
+                formError: action.payload,
             });
+
         default:
             return state;
     };

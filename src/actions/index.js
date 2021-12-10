@@ -4,6 +4,7 @@ export const SMURF_START = 'SMURF_START';
 export const SMURF_SUCCESS = 'SMURF_SUCCESS';
 export const SMURF_FAIL = 'SMURF_FAIL';
 export const SMURF_ADD = 'SMURF_ADD';
+export const SET_ERROR = 'SET_ERROR';
 
 export const fetchSmurfs = () => {
     return (dispatch) => {
@@ -19,8 +20,15 @@ export const fetchSmurfs = () => {
     };
 };
 
-export const addSmurf = (newSmurf) => {
-    return ({type: SMURF_ADD, payload: newSmurf});
+export function addSmurf(newSmurf) {
+    return {
+      type: SMURF_ADD,
+      payload: newSmurf,
+    };
+  }
+
+export const setError = (error) => {
+    return ({type: SET_ERROR, payload: error});
 };
 
 //Task List:
