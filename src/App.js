@@ -13,7 +13,7 @@ import "./App.css";
 
 const App = (props)=> {
   useEffect(() => {
-  props.fetchSmurfs();
+    props.fetchSmurfs();
   }, []);
 
   return (
@@ -28,7 +28,7 @@ const App = (props)=> {
   );
 }
 
-export default connect(null, {fetchSmurfs}) (App);
+export default connect(null, { fetchSmurfs }) (App);
 
 //Task List:
 //1. Connect the fetchSmurfs actions to the App component.
