@@ -7,11 +7,11 @@ export const SMURF_ADD = 'SMURF_ADD';
 
 export const fetchSmurfs = () => {
     return (dispatch) => {
-        dispatch({type: FETCH_START});
+        dispatch({type: SMURF_START});
 
         axios.get('http://localhost:3333/smurfs')
             .then(resp => {
-                console.log(resp);
+                dispatch({type: SMURF_SUCCESS, payload: (resp.data)});
             })
             .catch(err => {
                 dispatch({type: SMURF_FAIL, payload: err});

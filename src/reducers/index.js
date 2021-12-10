@@ -1,7 +1,13 @@
 import { SMURF_START, SMURF_SUCCESS, SMURF_FAIL, SMURF_ADD } from "../actions";
 
 export const initialState = {
-    smurfs: [],
+    smurfs: [{
+        id:"42069",
+        name:'test',
+        position:'peepee',
+        nickname: 'poopoo',
+        description: 'bruh',
+    }],
     isLoading: false,
     error: '',
 };
