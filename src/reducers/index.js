@@ -38,7 +38,7 @@ const reducer = (state = initialState, action) => {
             };
             return ({
                 ...state,
-                smurfs: [...smurfs, newSmurf],
+                smurfs: [...state.smurfs, newSmurf],
                 isLoading: false,
                 error: '',
             });
