@@ -43,9 +43,9 @@ const reducer = (state = initialState, action) => {
             const newSmurf = {
                 id: 420,
                 name: action.payload,
-                position: 'test',
-                nickname: 'test',
-                description: 'test',
+                position: action.payload,
+                nickname: action.payload,
+                description: action.payload,
             };
             return {
                 ...state,
@@ -57,7 +57,7 @@ const reducer = (state = initialState, action) => {
                 smurfs: [],
                 isLoading: false,
                 fetchError: '',
-                formError: true,
+                formError: true ,
             });
 
         default:

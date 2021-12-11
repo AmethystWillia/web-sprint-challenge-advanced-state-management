@@ -20,7 +20,7 @@ export const fetchSmurfs = () => {
     };
 };
 
-export function addSmurf(newSmurf) {
+export const addSmurf = (newSmurf) => {
     return {
       type: SMURF_ADD,
       payload: newSmurf,
