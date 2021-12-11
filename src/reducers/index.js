@@ -10,7 +10,7 @@ export const initialState = {
     }],
     isLoading: false,
     fetchError: '',
-    formError: 'You must fill in the name, position, and nickname.',
+    formError: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -57,7 +57,7 @@ const reducer = (state = initialState, action) => {
                 smurfs: [],
                 isLoading: false,
                 fetchError: '',
-                formError: action.payload,
+                formError: true,
             });
 
         default:
